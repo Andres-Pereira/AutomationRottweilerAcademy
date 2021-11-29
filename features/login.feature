@@ -5,9 +5,9 @@ Feature: Log-In to Rottweiler Academy
 
   Scenario: Login with correct password and username
     Given that I am in the login section
-    And I put the username "diegoucb"
+    When I put the username "diegoucb"
     And the password "diego1.hola"
-    When I press the button "Acceder"
+    And I press the button "Acceder"
     Then the Rottweiler Academy homepage will load with my account logged.
 
   Scenario: Login correctly with an account that hasn't been activated yet
