@@ -3,6 +3,7 @@ Feature: Buy the items on my cart
   As a Rottweiler Academy subscribed user
   I want to pay for the courses I have in my cart
 
+  @bankTransaction
   Scenario: Paying a course with bank transaction
     Given that I am in the section "Finalizar compra"
     When I insert the data as shown below
@@ -10,12 +11,14 @@ Feature: Buy the items on my cart
     And press the button "Realizar el pedido"
     Then a page with the order details will load
 
+  @checkbox
   Scenario: Paying a course without pressing the checkbox of terms and conditions
     Given that I am in the section "Finalizar compra"
     When I insert the data as shown below
     And press the button "Realizar el pedido"
     Then the message "Por favor, lee y acepta los términos y condiciones para proceder con tu pedido." will be shown
 
+  @billingData
   Scenario: Paying a course without filling the billing data
     Given that I am in the section "Finalizar compra"
     When I check the checkbox "He leído y estoy de acuerdo con los términos y condiciones de la web"

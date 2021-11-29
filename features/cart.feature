@@ -3,18 +3,21 @@ Feature: Using the shopping cart
   As a Rottweiler Academy subscribed user
   I want to see and edit the items I have in my cart
 
+  @viewCart
   Scenario: View my shopping cart items
     Given that I am in the section "Inicio"
     And I have the item "Como hacer milkshakes" added to my cart
     When I press the button with a cart icon
     And press the option "Ver carrito"
     Then the course "Como hacer milkshakes" will be in my cart
-
+    
+  @viewEmptyCart
   Scenario: View my empty shopping cart
     Given that I am in the section "Inicio"
     When I press the button with a cart icon
     Then the message "No hay productos en el carrito." should be shown
 
+  @removeCart
   Scenario: Remove an item from the cart
     Given that I am in the section "carrito"
     And I have the item "Como hacer milkshakes" added to my cart
