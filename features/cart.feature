@@ -10,6 +10,11 @@ Feature: Using the shopping cart
     And press the option "Ver carrito"
     Then the course "Como hacer milkshakes" will be in my cart
 
+  Scenario: View my empty shopping cart
+    Given that I am in the section "Inicio"
+    When I press the button with a cart icon
+    Then the message "No hay productos en el carrito." should be shown
+
   Scenario: Remove an item from the cart
     Given that I am in the section "carrito"
     And I have the item "Como hacer milkshakes" added to my cart
