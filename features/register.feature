@@ -3,6 +3,7 @@ Feature: Create an account in Rottweiler Academy
   As a person who wants to join the Rottweiler Academy community
   I want a feature that helps me create an account
 
+  @createAccount
   Scenario: Create an account successfully
     Given that I am in the register section
     When I put the email "andy_gmr16@gmail.com"
@@ -15,6 +16,7 @@ Feature: Create an account in Rottweiler Academy
     Then a page will load with the message "Antes de que pueda iniciar sesión, debe confirmar su dirección de correo electrónico a través del correo electrónico que le acabamos de enviar."
     And an email to confirm the account will be send
 
+  @createAccountWithoutEmail
   Scenario: Create an account without filling the email box
     Given that I am in the register section
     When I put the password "andy1213"
@@ -25,6 +27,7 @@ Feature: Create an account in Rottweiler Academy
     And I press the button "Crear una cuenta"
     Then a message "Por favor, introduce una dirección de correo electrónico válida." will be thrown
 
+  @createAccountWithoutPassword
   Scenario: Create an account without filling password
     Given that I am in the register section
     When I put the email "andrewalen16@gmail.com"
@@ -34,6 +37,7 @@ Feature: Create an account in Rottweiler Academy
     And I press the button "Crear una cuenta"
     Then a message "Asegúrese de ingresar su contraseña dos veces." will be thrown
 
+  @createAccountWrongPassword
   Scenario: Create an account confirming my password wrong
     Given that I am in the register section
     When I put the email "andrewalen16@gmail.com"
@@ -45,6 +49,7 @@ Feature: Create an account in Rottweiler Academy
     And I press the button "Crear una cuenta"
     Then a message "Las contraseñas ingresadas no coinciden." will be thrown
 
+  @createAccountWithSameEmail
   Scenario: Create an account with an email that has a  Rottweiler Academy account linked
     Given that I am in the register section
     And the email "andrewalen16@gmail.com" has an account linked
@@ -57,6 +62,7 @@ Feature: Create an account in Rottweiler Academy
     And I press the button "Crear una cuenta"
     Then a message "Lo siento, esta dirección de email ya está en uso" will be thrown
 
+  @createAccountWithSameUsername
   Scenario: Create an account with a username that has a  Rottweiler Academy account linked
       Given that I am in the register section
       And the username "andrespereira" has an account linked
@@ -69,6 +75,7 @@ Feature: Create an account in Rottweiler Academy
       And I press the button "Crear una cuenta"
       Then a message "Nombre de Usuario ya se ha tomado." will be thrown
 
+  @createAccountWithoutLast
   Scenario: Create an account without filling a last name
       Given that I am in the register section
       When I put the email "andrewalen16@gmail.com"
@@ -79,6 +86,7 @@ Feature: Create an account in Rottweiler Academy
       And I press the button "Crear una cuenta"
       Then a message "Este es un campo obligatorio." will be thrown
 
+  @createAccountWithoutName
   Scenario: Create an account without filling a name
       Given that I am in the register section
       When I put the email "andrewalen16@gmail.com"
@@ -89,6 +97,7 @@ Feature: Create an account in Rottweiler Academy
       And I press the button "Crear una cuenta"
       Then a message "Este es un campo obligatorio." will be thrown
 
+  @createAccountWithoutUsername
   Scenario: Create an account without filling a username
       Given that I am in the register section
       When I put the email "andrewalen16@gmail.com"

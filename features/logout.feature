@@ -3,6 +3,7 @@ Feature: Log-Out from Rottweiler Academy
   As a Rottweiler Academy logged user
   I want to log-out from my account
 
+  @logout
   Scenario: Logout from a Rottweiler Academy account
     Given that I am loged
     When I press the profile button
