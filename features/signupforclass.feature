@@ -3,14 +3,6 @@ Feature: Sign up to a Rottweiler Academy course
   As a Rottweiler Academy subscribed user
   I want to sign up to a course I'm interested
 
-  @SignUpMoneyUnlogged
-  Scenario: Sign up to a course that costs money without Login
-    Given that I am in the section "Courses"
-    When I press on the course "Curso completo de Photoshop desde Cero"
-    And I press the button 'Apuntarme'
-    And I press the button 'Añadir al carrito'
-    Then the course should be added to the cart
-
   @SignUpFreeUnlogged
   Scenario: Sign up to a free course without Login
     Given that I am in the section "Courses"
@@ -42,7 +34,7 @@ Feature: Sign up to a Rottweiler Academy course
     Then the course should be added to the list "Mi cursos"
 
   @SignUpMoneyLogged
-  Scenario: Sign up to a course that costs money 
+  Scenario: Sign up to a course that costs money
     Given that I am in the section "Courses"
     When I press on the course "Curso completo de Photoshop desde Cero"
     And I press the button 'Apuntarme'
