@@ -1,10 +1,13 @@
 
 #Background:
 #Given that I am in the login section
-Given('that I am in the login section') do
-  visit 'https://www.r-acad.com/wp-login.php'
+Given('that I am in the home page') do
+  visit 'https://www.r-acad.com/'
 end
 
+Given('I press the {string} button') do |string|
+  find(:xpath, '/html/body/div[1]/header/div[1]/div[2]/div/div[2]/a[1]').click
+end
 # SCENARIO: Login with wrong credentials
 #Given I put the username <user>
 Given(/^I put the username "([^"]*)"$/) do |user|

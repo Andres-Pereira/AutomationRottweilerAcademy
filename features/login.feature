@@ -4,7 +4,8 @@ Feature: Log-In to Rottweiler Academy
   I want a login section that verifies correctly my credentials
 
   Background:
-    Given that I am in the login section
+    Given that I am in the home page
+    And I press the "Iniciar sesion" button
 
   @wrongCredentials
   Scenario: Login with wrong credentials
@@ -21,7 +22,7 @@ Feature: Log-In to Rottweiler Academy
 
     @correctCredentials
     Scenario: Login with valid credentials
-    And I put the user "diegoucb"
+    Given I put the user "diegoucb"
     And I put the password "diego1.hola"
     When I press the button "Acceder"
     Then the Rottweiler Academy homepage will load with my account logged.
