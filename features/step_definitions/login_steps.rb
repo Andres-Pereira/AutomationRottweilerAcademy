@@ -1,6 +1,6 @@
 
 #Background:
-#Given that I am in the login section
+#Given that I am in the homepage
 Given('that I am in the home page') do
   visit 'https://www.r-acad.com/'
 end
