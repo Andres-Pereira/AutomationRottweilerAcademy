@@ -3,25 +3,24 @@ Feature: Reset my password
   As a Rottweiler Academy subscribed user that has forgotten his password
   I want a feature that permits me reset my password
 
-  @resetPaswordWrongEmail
-  Scenario: Reset password puting a wrong email
-    Given that I am in the lost password section
-    And there is no account linked to the email "andy1213@gmail.com"
-    When I put the email "andy1213@gmail.com"
-    And I press the button "Solicitar enlace de restablecimiento"
-    Then a message "Error: no hay ninguna cuenta con ese nombre de usuario o dirección de correo electrónico." will be thrown
+  Background:
+  Given that I am in the home page
+  And I press the "Iniciar sesion" button
+  And press the link "¿Olvidó la contraseña?"
 
-  @resetPasword
+  @resetPaswordCorrectly
   Scenario: Reset password puting a correct email
-    Given that I am in the lost password section
-    And there is an account linked to the email "xxx@gmail.com"
-    When I put the email "xxx@gmail.com"
-    And I press the button "Solicitar enlace de restablecimiento"
-    Then an email should be sent to the email "xxx@gmail.com"
+    Given there is an account linked to the email "andres.pereira@ucb.edu.bo"
+    When I put the email "andres.pereira@ucb.edu.bo"
+    And I press the "Solicitar enlace de restablecimiento" button
+    Then an email should be sent to the email "andres.pereira@ucb.edu.bo"
 
-  @resetPaswordEmptyEmail
-  Scenario: Reset password without puting an email
-    Given that I am in the lost password section
-    And there is an account linked to the email "xxx@gmail.com"
+  @resetPaswordWrongData
+  Scenario: Reset password with a wrong email
+    Given I put the email <email>
     When I press the button "Solicitar enlace de restablecimiento"
-    Then an message "Error: Por favor, introduce un nombre de usuario o una dirección de correo electrónico." should be thrown
+    Then a message <error> will be thrown
+    Examples:
+    | email                | error                                                                                       |
+    | "andy123@gmail.com"  | "Error: no hay ninguna cuenta con ese nombre de usuario o dirección de correo electrónico." |
+    | "                 "  | "Error: Por favor, introduce un nombre de usuario o una dirección de correo electrónico."   |
