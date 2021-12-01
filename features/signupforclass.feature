@@ -31,7 +31,6 @@ Feature: Sign up to a Rottweiler Academy course
     And I press the option 'Añadir al carrito'
     Then the error: "No puedes añadir otro «Curso completo de Photoshop desde Cero» a tu carrito." should be thrown
 
-
   @myCourses
   Scenario: See the courses that I am subscribed
     Given I am subscribed to the course "Curso básico de Robótica con Arduino"
