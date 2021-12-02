@@ -65,10 +65,3 @@ Then('the course should be added to the cart') do
   message = find(:xpath, '/html/body/div[1]/div/div/div/div[1]/main/article/div/div/form/table/tbody/tr[1]/td[3]/a').text
   expect(page).to have_content(message)
 end
-
-#SCENARIO: Sign up to a course that is already added
-#Then the error: "No puedes añadir otro «Curso completo de Photoshop desde Cero» a tu carrito." should be thrown
-Then('the error: {string} should be thrown') do |string|
-  message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/div[1]/ul/li').text
-  expect(page).to have_content(message)
-end

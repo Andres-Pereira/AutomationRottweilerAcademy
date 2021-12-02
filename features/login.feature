@@ -12,7 +12,7 @@ Feature: Log-In to Rottweiler Academy
     Given I put the username <user>
     And the password <pass>
     When I press the button "Acceder"
-    Then an <error> message should be thrown
+    Then the error is thrown: <error>
     Examples:
       | user        | pass            | error                                                                                        |
       | "diegoupb"  | "diego1.hola"   | "Error: El nombre de usuario diegoupb no está registrado en este sitio."                     |
