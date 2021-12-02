@@ -5,34 +5,34 @@ Feature: Sign up to a Rottweiler Academy course
 
   Background:
     Given that I am in the home page
-    And I press the "Iniciar sesion" button
+    And I press the button "Iniciar sesion"
     And I insert valid credentials
     And I press the button "Acceder"
-    And I go to the section "Cursos"
+    And I press the button "Cursos"
 
   @SignUpFree
   Scenario: Sign up to a free course
     Given I press on the course "Curso básico de Robótica con Arduino"
-    When I click on 'Apuntarme'
+    When I press the button "Apuntarme"
     Then the course should be added to the list "Mi cursos"
 
   @SignUpMoney
   Scenario: Sign up to a course that costs money
     Given I press on the paid course "Curso completo de Photoshop desde Cero"
-    And I click on 'Apuntarme'
-    And I press the option 'Añadir al carrito'
+    And I press the button "Apuntarme"
+    And I press the button "Añadir al carrito"
     Then the course should be added to the cart
 
   @SignUpRepeat
   Scenario: Sign up to a course that is already added
     Given I am subscribed to the course "Curso completo de Photoshop desde Cero"
     When I press on the paid course "Curso completo de Photoshop desde Cero"
-    And I click on 'Apuntarme'
-    And I press the option 'Añadir al carrito'
+    And I press the button "Apuntarme"
+    And I press the button "Añadir al carrito"
     Then the error is thrown: "No puedes añadir otro «Curso completo de Photoshop desde Cero» a tu carrito."
 
   @myCourses
   Scenario: See the courses that I am subscribed
     Given I am subscribed to the course "Curso básico de Robótica con Arduino"
-    When I press the tab "Mi cursos"
+    When I press the button "Mi cursos"
     Then the course "Curso básico de Robótica con Arduino" should appear in my courses list

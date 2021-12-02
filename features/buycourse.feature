@@ -5,15 +5,15 @@ Feature: Buy the items on my cart
 
   Background:
   Given that I am in the home page
-  And I press the "Iniciar sesion" button
+  And I press the button "Iniciar sesion"
   And I insert valid credentials
   And I press the button "Acceder"
-  And I press the button with a "cart" icon
+  And I press the button "Cart"
+  And I press the button "Finalizar compra"
 
   @wrongBillingData
-  Scenario: Paying a course without filling the billing data correctly
-    Given that I click to "Finalizar compra"
-    When I insert the data as shown below
+  Scenario Outline: Paying a course without filling the billing data correctly
+    Given I insert the data as shown below
     |Nombre:                |<nombre>    |
     |Apellidos:             |<apellido>  |
     |Dirección de la calle: |<direccion> |
@@ -22,7 +22,7 @@ Feature: Buy the items on my cart
     |Dirección de correo:   |<correo>    |
     And select my country and region
     When I check the checkbox "He leído y estoy de acuerdo con los términos y condiciones de la web"
-    And press on Realizar el pedido
+    And I press the button "Realizar el pedido"
     Then the error is thrown: <error>
     Examples:
     | nombre  | apellido | direccion                 | ciudad    | telefono  | correo                      | error|
@@ -36,8 +36,7 @@ Feature: Buy the items on my cart
 
   @bankTransaction
   Scenario: Paying a course with bank transaction
-    Given that I click to "Finalizar compra"
-    When I insert the data as shown below
+    Given I insert the data as shown below
     |Nombre:                |Andres                    |
     |Apellidos:             |Pereira                   |
     |Dirección de la calle: |pasaje fransisco viedma   |
@@ -45,6 +44,6 @@ Feature: Buy the items on my cart
     |Teléfono:              |77976222                  |
     |Dirección de correo:   |andres.pereira@ucb.edu.bo |
     And select my country and region
-    And I check the checkbox "He leído y estoy de acuerdo con los términos y condiciones de la web"
-    And press on Realizar el pedido
+    When I check the checkbox "He leído y estoy de acuerdo con los términos y condiciones de la web"
+    And I press the button "Realizar el pedido"
     Then a page with the order details will load

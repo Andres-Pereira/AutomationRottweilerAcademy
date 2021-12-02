@@ -1,10 +1,4 @@
 
-#Background:
-#And I press the button "Registrarse"
-Given('I press the call to action button {string}') do |string|
-  find(:xpath, '/html/body/div[1]/header/div[1]/div[2]/div/div[2]/a[2]').click
-end
-
 #SCENARIO: Correct register
 #Given I enter the fields as shown below
 Given(/^I enter the fields as shown below$/) do |table|
@@ -25,12 +19,6 @@ Given(/^I enter the fields as shown below$/) do |table|
     fill_in 'field_3', :with => value
   end
   end
-end
-
-#When I press "Crear una cuenta"
-When('I press {string}') do |string|
-  click_on ('signup_submit')
-  sleep 2
 end
 
 #Then a page will load with the message "Antes de que pueda iniciar sesión, debe confirmar su dirección de correo electrónico a través del correo electrónico que le acabamos de enviar."

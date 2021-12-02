@@ -5,9 +5,6 @@ Given('that I am in the home page') do
   visit 'https://www.r-acad.com/'
 end
 
-Given('I press the {string} button') do |string|
-  find(:xpath, '/html/body/div[1]/header/div[1]/div[2]/div/div[2]/a[1]').click
-end
 # SCENARIO: Login with wrong credentials
 #Given I put the username <user>
 Given(/^I put the username "([^"]*)"$/) do |user|
@@ -17,11 +14,6 @@ end
 #And the password <pass>
 Given(/^the password "([^"]*)"$/) do |pass|
   fill_in 'user_pass', with: pass
-end
-
-#When I press the button "Acceder"
-When('I press the button {string}') do |string|
-  click_on ('wp-submit')
 end
 
 # SCENARIO: Login successfully

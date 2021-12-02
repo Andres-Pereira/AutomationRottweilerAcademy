@@ -5,7 +5,7 @@ Feature: Create an account in Rottweiler Academy
 
   Background:
     Given that I am in the home page
-    And I press the call to action button "Registrarse"
+    And I press the button "Registrarse"
 
   @createAccount
   Scenario: Create an account successfully
@@ -16,11 +16,11 @@ Feature: Create an account in Rottweiler Academy
     |Name:      |Andres                   |
     |Last Name: |Pereira                  |
     |User Name: |andrespereira7           |
-    When I press "Crear una cuenta"
+    When I press the button "Crear una cuenta"
     Then a page will load with the message "Antes de que pueda iniciar sesión, debe confirmar su dirección de correo electrónico a través del correo electrónico que le acabamos de enviar."
 
   @createAccountWrongData
-  Scenario: Create an account without filling a required
+  Scenario Outline: Create an account without filling a required
   Given I enter the fields as shown below
   |Email:     |<email>    |
   |Password:  |<password> |
@@ -28,7 +28,7 @@ Feature: Create an account in Rottweiler Academy
   |Name:      |<name>     |
   |Last Name: |<lastname> |
   |User Name: |<username> |
-  When I press "Crear una cuenta"
+  When I press the button "Crear una cuenta"
   Then the error is thrown: <error>
   Examples:
   | email                     | password      | confirm       | name     | lastname  | username | error                                                              |

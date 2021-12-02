@@ -5,10 +5,10 @@ Feature: Log-In to Rottweiler Academy
 
   Background:
     Given that I am in the home page
-    And I press the "Iniciar sesion" button
+    And I press the button "Iniciar sesion" 
 
   @wrongCredentials
-  Scenario: Login with wrong credentials
+  Scenario Outline: Login with wrong credentials
     Given I put the username <user>
     And the password <pass>
     When I press the button "Acceder"
