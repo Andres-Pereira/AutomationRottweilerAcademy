@@ -27,7 +27,8 @@ end
 Then('the course should be added to the list {string}') do |string|
   visit 'https://www.r-acad.com/courses/'
   find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/nav/ul/li[2]/a').click
-  #wut
+  message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul[2]/li[2]/div/div[2]/h2/a').text
+  expect(page).to have_content(message)
 end
 
 #SCENARIO: See the courses that I am subscribed

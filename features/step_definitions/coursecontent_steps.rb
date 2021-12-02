@@ -9,7 +9,7 @@ end
 Then('the content access should be locked with the message {string}') do |string|
   message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/div/div[2]/div[1]/div[2]/div[2]/div[2]').hover.text
   expect(page).to have_content(message)
-  #No se pudo implementar
+  #No se pudo implementar el hover
 end
 
 #SCENARIO: Access to a course content in wich I am subscribed
