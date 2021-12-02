@@ -5,18 +5,18 @@ Feature: Reset my password
 
   Background:
   Given that I am in the home page
-  And I press the "Iniciar sesion" button
-  And press the link "¿Olvidó la contraseña?"
+  And I press the button "Iniciar sesion"
+  And press the text "¿Olvidó la contraseña?"
 
   @resetPaswordCorrectly
   Scenario: Reset password puting a correct email
     Given there is an account linked to the email "andres.pereira@ucb.edu.bo"
     When I put the email "andres.pereira@ucb.edu.bo"
-    And I press the "Solicitar enlace de restablecimiento" button
+    And I press the button "Solicitar enlace de restablecimiento"
     Then an email should be sent to the email "andres.pereira@ucb.edu.bo"
 
   @resetPaswordWrongData
-  Scenario: Reset password with a wrong email
+  Scenario Outline: Reset password with a wrong email
     Given I put the email <email>
     When I press the button "Solicitar enlace de restablecimiento"
     Then a message <error> will be thrown
