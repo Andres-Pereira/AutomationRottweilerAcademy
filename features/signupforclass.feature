@@ -29,7 +29,7 @@ Feature: Sign up to a Rottweiler Academy course
     When I press on the paid course "Curso completo de Photoshop desde Cero"
     And I click on 'Apuntarme'
     And I press the option 'Añadir al carrito'
-    Then the error: "No puedes añadir otro «Curso completo de Photoshop desde Cero» a tu carrito." should be thrown
+    Then the error is thrown: "No puedes añadir otro «Curso completo de Photoshop desde Cero» a tu carrito."
 
   @myCourses
   Scenario: See the courses that I am subscribed

@@ -10,15 +10,14 @@ Feature: Create an account in Rottweiler Academy
   @createAccount
   Scenario: Create an account successfully
     Given I enter the fields as shown below
-    |Email:     |andres.pereira4@gmail.com|
+    |Email:     |andres.pereira5@gmail.com|
     |Password:  |diego1.hola              |
     |Confirm:   |diego1.hola              |
     |Name:      |Andres                   |
     |Last Name: |Pereira                  |
-    |User Name: |andrespereira6           |
+    |User Name: |andrespereira7           |
     When I press "Crear una cuenta"
     Then a page will load with the message "Antes de que pueda iniciar sesión, debe confirmar su dirección de correo electrónico a través del correo electrónico que le acabamos de enviar."
-    And an email will be sent
 
   @createAccountWrongData
   Scenario: Create an account without filling a required
@@ -30,16 +29,15 @@ Feature: Create an account in Rottweiler Academy
   |Last Name: |<lastname> |
   |User Name: |<username> |
   When I press "Crear una cuenta"
-  Then a page will load with the message "Antes de que pueda iniciar sesión, debe confirmar su dirección de correo electrónico a través del correo electrónico que le acabamos de enviar."
-  And an email will be sent
+  Then the error is thrown: <error>
   Examples:
-  | email                     | password      | confirm       | name     | lastname  | username |
-  |                           | diego1.hola   | diego1.hola   | Andres   | Pereira   | andy     |
-  | andres.per@gmail.com      |               | diego1.hola   | Andres   | Pereira   | andy     |
-  | andres.per@gmail.com      | diego1.hola   | diego1        | Andres   | Pereira   | andy     |
-  | andres.pereira@ucb.edu.bo | diego1.hola   | diego1.hola   | Andres   | Pereira   | andy     |
-  | andres.per@gmail.com      | diego1.hola   | diego1.hola   | Andres   | Pereira   | diegoucb |
-  | andres.per@gmail.com      | diego1.hola   | diego1.hola   | Andres   |           | andy     |
-  | andres.per@gmail.com      | diego1.hola   | diego1.hola   |          | Pereira   | andy     |
-  | andres.per@gmail.com      | diego1.hola   | diego1.hola   | Andres   | Pereira   |          |
-  | andres.per@gmail          | diego1.hola   | diego1.hola   | Andres   | Pereira   | andy     |
+  | email                     | password      | confirm       | name     | lastname  | username | error                                                              |
+  |                           | diego1.hola   | diego1.hola   | Andres   | Pereira   | andy     | "Por favor, introduce una dirección de correo electrónico válida." |
+  | andres.per@gmail.com      |               | diego1.hola   | Andres   | Pereira   | andy     | "Asegúrese de ingresar su contraseña dos veces."                   |
+  | andres.per@gmail.com      | diego1.hola   | diego1        | Andres   | Pereira   | andy     | "Las contraseñas ingresadas no coinciden."                         |
+  | andres.pereira@ucb.edu.bo | diego1.hola   | diego1.hola   | Andres   | Pereira   | andy     | "Lo siento, esta dirección de email ya está en uso"                |
+  | andres.per@gmail.com      | diego1.hola   | diego1.hola   | Andres   | Pereira   | diegoucb | "Nombre de Usuario ya se ha tomado."                               |
+  | andres.per@gmail.com      | diego1.hola   | diego1.hola   | Andres   |           | andy     | "Este es un campo obligatorio."                                    |
+  | andres.per@gmail.com      | diego1.hola   | diego1.hola   |          | Pereira   | andy     | "Este es un campo obligatorio."                                    |
+  | andres.per@gmail.com      | diego1.hola   | diego1.hola   | Andres   | Pereira   |          | "Este es un campo obligatorio."                                    |
+  | andres.per@gmail          | diego1.hola   | diego1.hola   | Andres   | Pereira   | andy     | "Por favor, introduce una dirección de correo electrónico válida." |

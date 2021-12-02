@@ -34,8 +34,7 @@ Given('I put the password {string}') do |string|
 end
 
 Then('the Rottweiler Academy homepage will load with my account logged.') do
-  page.has_xpath?('/html/body')
-  #expect(page).to have_xpath?('/html/body')
-  #expect(page).to have_content("home-page bp-nouveau home page-template-default page page-id-1024 logged-in theme-buddyboss-theme woocommerce-js tribe-js buddyboss-theme bb-buddypanel bb-custom-typo sticky-header bp-search elementor-default elementor-kit-99 elementor-page elementor-page-1024 learndash-theme js bb-page-loaded lms-side-panel-close e--ua-blink e--ua-chrome e--ua-webkit")
-  sleep 1
+  message = find(:xpath, '/html/body/div[1]/header/div[1]/div[2]/div/div[1]/a/span').text
+  puts message
+  expect(page).to have_content(message)
 end

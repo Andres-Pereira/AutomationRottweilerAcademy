@@ -6,6 +6,7 @@ Given('I press the call to action button {string}') do |string|
 end
 
 #SCENARIO: Correct register
+#Given I enter the fields as shown below
 Given(/^I enter the fields as shown below$/) do |table|
   data = table.rows_hash
   data.each_pair do |key, value|
@@ -26,17 +27,15 @@ Given(/^I enter the fields as shown below$/) do |table|
   end
 end
 
+#When I press "Crear una cuenta"
 When('I press {string}') do |string|
   click_on ('signup_submit')
   sleep 2
 end
 
+#Then a page will load with the message "Antes de que pueda iniciar sesión, debe confirmar su dirección de correo electrónico a través del correo electrónico que le acabamos de enviar."
 Then('a page will load with the message {string}') do |string|
   message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/article/div/div/div/aside/p').text
   puts message
   expect(page).to have_content(message)
-end
-
-Then('an email will be sent') do
-  #to-do
 end

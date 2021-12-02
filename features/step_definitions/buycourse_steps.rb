@@ -71,10 +71,3 @@ When('I insert the data as shown') do |table|
   end
   end
 end
-
-#Then the exception "Facturacion <campo> es un campo requerido" will be shown
-Then('the exception {string} will be shown') do |string|
-  message = find(:xpath, '/html/body/div[1]/div/div/div/div[1]/main/article/div/div/form[2]/div[1]/ul/li').text
-  puts message
-  expect(page).to have_content(message)
-end
