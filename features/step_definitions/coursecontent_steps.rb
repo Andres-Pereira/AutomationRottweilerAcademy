@@ -7,7 +7,7 @@ Then('the content access should be locked with the message {string}') do |string
 end
 
 #SCENARIO: Access to a course content in wich I am subscribed
-#I am subscribed to the course "Curso básico de Robótica con Arduino"
+#I am subscribed to the course
 Given(/^I am subscribed to the course "([^"]*)"$/) do |course|
   find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/nav/ul/li[2]/a').click
   case course
@@ -26,6 +26,5 @@ end
 #Then the first video from the course will be shown
 Then('the first video from the course will be shown') do
   message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/article/div/div/div/div/div[2]/div/div/div[2]/div[1]/div/div').text
-  puts message
   expect(page).to have_content(message)
 end
