@@ -30,6 +30,5 @@ end
 #Then the Rottweiler Academy homepage will load with my account logged.
 Then('the Rottweiler Academy homepage will load with my account logged.') do
   message = find(:xpath, '/html/body/div[1]/header/div[1]/div[2]/div/div[1]/a/span').text
-  puts message
   expect(page).to have_content(message)
 end

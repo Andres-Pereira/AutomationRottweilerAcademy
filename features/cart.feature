@@ -10,14 +10,14 @@ Feature: Using the shopping cart
     And I put my password
     And I press the button "Acceder"
 
-  @viewEmptyCart
-  Scenario: View my empty shopping cart
-    When I press the button "Cart"
-    Then we should see the empty cart message "No hay productos en el carrito."
-
   @removeCart
   Scenario: Remove an item from the cart
     Given I have the item "Curso completo de Photoshop desde Cero" added to my cart
     And I press the button "Ver carrito"
     When I press the button "X"
     Then we should see the empty cart message "Tu carrito está vacío"
+    
+  @viewEmptyCart
+  Scenario: View my empty shopping cart
+    When I press the button "Cart"
+    Then we should see the empty cart message "No hay productos en el carrito."
