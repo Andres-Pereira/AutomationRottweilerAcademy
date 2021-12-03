@@ -12,6 +12,6 @@ Feature: Log-Out from Rottweiler Academy
 
   @logout
   Scenario: Logout from a Rottweiler Academy account
-    Given I press the text "Andres"
+    Given I press the button "Andres"
     When I press the button "Cierre de Sesion"
     Then the account should log-out
