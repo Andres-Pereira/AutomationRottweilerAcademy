@@ -4,6 +4,9 @@ require 'capybara/dsl'
 require 'capybara/cucumber'
 require 'capybara-screenshot/cucumber'
 
+ENV['user']="diegoucb"
+ENV['pass']="diego1.hola"
+
 Capybara.default_driver = :selenium
 
 # Set the host the Capybara tests should be run against

@@ -6,7 +6,8 @@ Feature: Buy the items on my cart
   Background:
   Given that I am in the home page
   And I press the button "Iniciar sesion"
-  And I insert valid credentials
+  And I put my user name
+  And I put my password
   And I press the button "Acceder"
   And I press the button "Cart"
   And I press the button "Finalizar compra"
@@ -20,7 +21,7 @@ Feature: Buy the items on my cart
     |Localidad / Ciudad:    |<ciudad>    |
     |Teléfono:              |<telefono>  |
     |Dirección de correo:   |<correo>    |
-    And select my country and region
+    And select my region
     When I check the checkbox "He leído y estoy de acuerdo con los términos y condiciones de la web"
     And I press the button "Realizar el pedido"
     Then the error is thrown: <error>
@@ -43,7 +44,7 @@ Feature: Buy the items on my cart
     |Localidad / Ciudad:    |cercado                   |
     |Teléfono:              |77976222                  |
     |Dirección de correo:   |andres.pereira@ucb.edu.bo |
-    And select my country and region
+    And select my region
     When I check the checkbox "He leído y estoy de acuerdo con los términos y condiciones de la web"
     And I press the button "Realizar el pedido"
     Then a page with the order details will load

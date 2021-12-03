@@ -37,3 +37,16 @@ When(/^I press the button "([^"]*)"$/) do |buttonName|
     find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/nav/ul/li[2]/a').click
   end
 end
+
+# Generic for courses
+#When I press the button "Acceder"
+Given(/^I press on the course "([^"]*)"$/) do |course|
+  case course
+  when "Curso básico de Robótica con Arduino"
+    find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul/li[5]/div/div[2]/h2/a').click
+  when "Curso completo de Photoshop desde Cero"
+    find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul/li[6]/div/div[2]/h2/a').click
+  when "Adobe illustrator"
+    find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul/li[1]/div/div[2]/h2/a').click
+  end
+end
