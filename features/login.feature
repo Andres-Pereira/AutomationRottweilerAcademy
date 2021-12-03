@@ -5,16 +5,16 @@ Feature: Log-In to Rottweiler Academy
 
   Background:
     Given that I am in the home page
-    And I press the button "Iniciar sesion" 
+    And I press the button "Iniciar sesion"
 
   @wrongCredentials
   Scenario Outline: Login with wrong credentials
-    Given I put the username <user>
-    And the password <pass>
+    Given I put the <username>
+    And the <password>
     When I press the button "Acceder"
     Then the error is thrown: <error>
     Examples:
-      | user        | pass            | error                                                                                        |
+      | username    | password        | error                                                                                        |
       | "diegoupb"  | "diego1.hola"   | "Error: El nombre de usuario diegoupb no está registrado en este sitio."                     |
       | "diegoucb"  | "diego1"        | "Error: la contraseña que has introducido para el nombre de usuario diegoucb no es correcta."|
       | "        "  | "diego1.hola"   | "Error: el campo del nombre de usuario está vacío."                                          |
@@ -22,7 +22,7 @@ Feature: Log-In to Rottweiler Academy
 
     @correctCredentials
     Scenario: Login with valid credentials
-    Given I put the user "diegoucb"
-    And I put the password "diego1.hola"
+    Given I put my user name
+    And I put my password
     When I press the button "Acceder"
     Then the Rottweiler Academy homepage will load with my account logged.

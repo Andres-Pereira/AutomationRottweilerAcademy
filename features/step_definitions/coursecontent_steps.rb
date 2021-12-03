@@ -1,21 +1,21 @@
 
 #SCENARIO: Access to a course in wich I'm not subscribed
-#When I click on the paid course "Adobe illustrator"
-When('I click on the paid course {string}') do |string|
-  find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul/li[1]/div/div[2]/h2/a').click
-end
-
 #Then the content access should be locked with the message "Actualmente no tienes acceso a este contenido"
 Then('the content access should be locked with the message {string}') do |string|
   message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/div/div[2]/div[1]/div[2]/div[2]/div[2]').hover.text
   expect(page).to have_content(message)
-  #No se pudo implementar el hover
 end
 
 #SCENARIO: Access to a course content in wich I am subscribed
-#And select the course
-When('select the course') do
-find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul[2]/li[2]/div/div[2]/h2/a').click
+#I am subscribed to the course "Curso básico de Robótica con Arduino"
+Given(/^I am subscribed to the course "([^"]*)"$/) do |course|
+  find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/nav/ul/li[2]/a').click
+  case course
+  when "Curso básico de Robótica con Arduino"
+    message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul[2]/li[2]/div/div[2]/h2/a').text
+    expect(page).to have_content(message)
+  end
+  visit 'https://www.r-acad.com/courses/'
 end
 
 #And press the course content "Introduccion a arduino"

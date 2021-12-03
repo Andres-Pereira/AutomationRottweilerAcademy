@@ -6,11 +6,12 @@ Feature: Log-Out from Rottweiler Academy
   Background:
     Given that I am in the home page
     And I press the button "Iniciar sesion"
-    And I insert valid credentials
+    And I put my user name
+    And I put my password
     And I press the button "Acceder"
 
   @logout
   Scenario: Logout from a Rottweiler Academy account
-    Given I press the button "Andres"
+    Given I press the text "Andres"
     When I press the button "Cierre de Sesion"
     Then the account should log-out
