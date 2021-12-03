@@ -20,8 +20,8 @@ Feature: Log-In to Rottweiler Academy
       | "        "  | "diego1.hola"   | "Error: el campo del nombre de usuario está vacío."                                          |
       | "diegoucb"  | "           "   | "Error: el campo de la contraseña está vacío."                                               |
 
-    @correctCredentials
-    Scenario: Login with valid credentials
+  @correctCredentials
+  Scenario: Login with valid credentials
     Given I put my user name
     And I put my password
     When I press the button "Acceder"
