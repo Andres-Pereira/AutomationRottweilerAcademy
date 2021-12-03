@@ -10,12 +10,12 @@ Feature: Create an account in Rottweiler Academy
   @createAccount
   Scenario: Create an account successfully
     Given I enter the fields as shown below
-    |Email:     |andres.pereira5@gmail.com|
+    |Email:     |andres.pereiray@gmail.com|
     |Password:  |diego1.hola              |
     |Confirm:   |diego1.hola              |
     |Name:      |Andres                   |
     |Last Name: |Pereira                  |
-    |User Name: |andrespereira7           |
+    |User Name: |andrespereiray           |
     When I press the button "Crear una cuenta"
     Then a page will load with the message "Antes de que pueda iniciar sesión, debe confirmar su dirección de correo electrónico a través del correo electrónico que le acabamos de enviar."
 

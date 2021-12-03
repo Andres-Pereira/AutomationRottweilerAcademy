@@ -1,4 +1,13 @@
 
+#SCENARIO: Sign up to a free course
+#Then the course should be added to the list "Mi cursos"
+Then('the course should be added to the list {string}') do |string|
+  visit 'https://www.r-acad.com/courses/'
+  find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/nav/ul/li[2]/a').click
+  message = find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/div[3]/div/ul[2]/li[2]/div/div[2]/h2/a').text
+  expect(page).to have_content(message)
+end
+
 #SCENARIO: Access to a course in wich I'm not subscribed
 #Then the content access should be locked with the message "Actualmente no tienes acceso a este contenido"
 Then('the content access should be locked with the message {string}') do |string|

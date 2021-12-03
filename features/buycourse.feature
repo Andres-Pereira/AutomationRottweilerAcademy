@@ -9,6 +9,10 @@ Feature: Buy the items on my cart
   And I put my user name
   And I put my password
   And I press the button "Acceder"
+  And I press the button "Cursos"
+  And I press on the course "Curso completo de Photoshop desde Cero"
+  And I press the button "Apuntarme"
+  And I press the button "Añadir al carrito"
   And I press the button "Cart"
   And I press the button "Finalizar compra"
 
