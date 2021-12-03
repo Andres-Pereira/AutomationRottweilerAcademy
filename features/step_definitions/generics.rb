@@ -35,6 +35,10 @@ When(/^I press the button "([^"]*)"$/) do |buttonName|
     find(:xpath, '/html/body/div[1]/div/div/div/div/main/div[2]/div[2]/form/button').click
   when "Mi cursos"
     find(:xpath, '/html/body/div[1]/div/div/div/div/main/div/form/nav/ul/li[2]/a').click
+  when "Andres"
+    find(:xpath, '/html/body/div[1]/header/div[1]/div[2]/div/div[1]/a/span').click
+  when "Cierre de Sesion"
+    find(:xpath, '/html/body/div[1]/header/div[1]/div[2]/div/div[1]/div/div/ul/li[9]/a').click
   end
 end
 
